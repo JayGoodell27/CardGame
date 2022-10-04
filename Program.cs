@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+
+//Console.Write($"The card is: {NewNum}");
+//Console.
+//vavarNumbers test = Numbersnew NumbersNn();:
+
+test.DisplayTextPoints();
+
+
+
+
+
+;
