@@ -3,8 +3,8 @@
 //Console.Write($"The card is: {NewNum}");
 //Console.
 //vavarNumbers test = Numbersnew NumbersNn();:
-
-test.DisplayTextPoints();
+Numbers test = new Numbers();
+String Display = test.DisplayPoints();
 
 
 
