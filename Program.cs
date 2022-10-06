@@ -29,7 +29,7 @@ class GameSystem
     
     
     Console.Write("Higher or lower? [h/l] ");
-    
+
     string? guess = Console.ReadLine();
     
     Console.Write($"Next card was: {RandomCard2}");
@@ -44,31 +44,31 @@ class GameSystem
     string? again = Console.ReadLine();
 
     }
-    public bool Compare(int Card1, int Card2, string guess)
-    {
-        if (Card1 >= Card2 || guess == "h")
-        {
-        return true;
-        }
-        else if (Card1 < Card2 || guess == "l")
-        {
-        return false;
-        }
-    }
-    public void PointChange(bool outcome)
-    {
-    Numbers score = new Numbers();
-    if (outcome == true)
-        {
-        score.AddPoints();
-        }
-    else
-        {
-        score.LosePoints();
-        }
+//     public bool Compare(int Card1, int Card2, string guess)
+//     {
+//         if (Card1 >= Card2 || guess == "h")
+//         {
+//         return true;
+//         }
+//         else if (Card1 < Card2 || guess == "l")
+//         {
+//         return false;
+//         }
+//     }
+//     public void PointChange(bool outcome)
+//     {
+//     Numbers score = new Numbers();
+//     if (outcome == true)
+//         {
+//         score.AddPoints();
+//         }
+//     else
+//         {
+//         score.LosePoints();
+//         }
     
-    }
-}
+//     }
+// }
 
 
 
