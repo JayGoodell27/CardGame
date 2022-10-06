@@ -30,6 +30,6 @@ class Numbers
     }
     public String DisplayPoints()
     {
-        return($"Your current points is {TotalScore}");
+        return($"Your score is: {TotalScore}");
     }
 }
