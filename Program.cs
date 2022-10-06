@@ -20,6 +20,7 @@ class GameSystem
 {
     public void Main()
     {
+    int TotalScore = 300;
     Cards newCard = new Cards();
     Numbers score = new Numbers();
     int RandomCard1 = newCard.NewNum();
@@ -33,12 +34,12 @@ class GameSystem
     
     Console.WriteLine($" Next card was: {RandomCard2}");
     bool outcome = Compare(RandomCard1, RandomCard2, guess);
-    PointChange(outcome);
+    TotalScore = PointChange(outcome, TotalScore);
     
     // String display = score.DisplayPoints();
     // Console.Write($"{display}");
 
-    String display = score.DisplayPoints();
+    String display = score.DisplayPoints(TotalScore);
     Console.WriteLine($"{display}");
     
     //Console.Write("Your score is: {}");
@@ -48,31 +49,27 @@ class GameSystem
     }
     public bool Compare(int Card1, int Card2, string guess)
     {
-    bool result = true;
-        if (Card2 >= Card1 || guess == "h")
+        if (Card2 >= Card1 || guess == "h" | Card2 < Card1 || guess == "l")
             {
-            result = true;
-            }
-        else if (Card1 > Card2 || guess == "l")
-            {
-            result = true;
+            return true;
             }
         else
             {
-            result = false;
+            return false;
             }
-    return result;
     }
-    public void PointChange(bool outcome)
+    public int PointChange(bool outcome, int TotalScore)
     {
     Numbers score = new Numbers();
     if (outcome == true)
         {
-        score.AddPoints();
+        TotalScore = score.AddPoints(TotalScore);
+        return TotalScore;
         }
     else
         {
-        score.LosePoints();
+        TotalScore = score.LosePoints(TotalScore);
+        return TotalScore;
         }
     
     }
