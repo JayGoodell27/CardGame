@@ -20,13 +20,18 @@ class GameSystem
     public void Main()
     {
     Cards newCard = new Cards();
+    Numbers score = new Numbers();
+
     Console.WriteLine($"The card is :{newCard}");
+    
+    
     Console.Write("Higher or lower? [h/l] ");
+    
     string? guess = Console.ReadLine();
     
     Console.Write($"Next card was: {newCard}");
     
-    Numbers score = new Numbers();
+    
     String display = score.DisplayPoints();
     Console.Write($"{display}");
     
