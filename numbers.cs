@@ -3,9 +3,11 @@ class Numbers
 {
     int TotalScore = 300;
     
+    
     public int AddPoints()
     {
        int score = TotalScore + 100;
+       TotalScore = score;
        return score;
 
     }
@@ -14,6 +16,7 @@ class Numbers
     {
         
         int score = TotalScore - 75;
+        TotalScore = score;
         return score;
     }
 
@@ -28,8 +31,9 @@ class Numbers
             return true;
         }
     }
-    public String DisplayPoints()
+    public string DisplayPoints()
     {
         return($"Your score is: {TotalScore}");
     }
+    
 }
