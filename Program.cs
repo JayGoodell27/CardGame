@@ -26,7 +26,7 @@ class GameSystem
     
     
     Console.Write("Higher or lower? [h/l] ");
-    
+
     string? guess = Console.ReadLine();
     
     Console.Write($"Next card was: {newCard}");
@@ -38,5 +38,6 @@ class GameSystem
     //Console.Write("Your score is: {}");
     Console.Write($"Play again? [y/n] ");
     string? again = Console.ReadLine();
+
     }
 }
