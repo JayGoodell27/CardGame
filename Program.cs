@@ -47,7 +47,7 @@ class GameSystem
     
     Console.WriteLine($" Next card was: {RandomCard2}");
     bool outcome = Compare(RandomCard1, RandomCard2, guess);
-    // TotalScore = PointChange(outcome, TotalScore);
+     TotalScore = PointChange(outcome, TotalScore);
     
     // String display = score.DisplayPoints();
     // Console.Write($"{display}");
@@ -94,26 +94,26 @@ class GameSystem
             }
 
     }
-    public void PointChange(bool outcome, int TotalScore)
+    public int PointChange(bool outcome, int TotalScore)
     {
     Numbers score = new Numbers();
     if (outcome == true)
         {
-        int newscore = score.AddPoints();
-        Console.WriteLine($"Your score is: {newscore}");
-        }
-   else
-        {
-        int newscore = score.LosePoints();
-        Console.WriteLine($"Your score is: {newscore}");
+//        int TotalScore = score.AddPoints();
+//        Console.WriteLine($"Your score is: {TotalScore}");
+//        }
+//   else
+//        {
+//        int TotalScore = score.LosePoints();
+//        Console.WriteLine($"Your score is: {TotalScore}");
 //=======
-  //      TotalScore = score.AddPoints(TotalScore);
-  //      return TotalScore;
-  //      }
-  //  else
-  //      {
-  //      TotalScore = score.LosePoints(TotalScore);
-  //      return TotalScore;
+       TotalScore = score.AddPoints();
+       return TotalScore;
+       }
+   else
+       {
+       TotalScore = score.LosePoints();
+       return TotalScore;
 //>>>>>>> f261e6921db1c59a2513f620afa0ff2f89022fac
         }
     

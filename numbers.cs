@@ -1,23 +1,26 @@
 
 class Numbers
 {
+    int TotalScore = 300;
     
     
-    public int AddPoints(int TotalScore)
+    public int AddPoints()
     {
        int score = TotalScore + 100;
+       TotalScore = score;
        return score;
 
     }
 
-    public int LosePoints(int TotalScore)
+    public int LosePoints()
     {
         
         int score = TotalScore - 75;
+        TotalScore = score;
         return score;
     }
 
-    public bool GameOverCheck(int TotalScore)
+    public bool GameOverCheck()
     {
         if (TotalScore <= 0)
         {
@@ -28,9 +31,7 @@ class Numbers
             return true;
         }
     }
-    public string DisplayPoints(int TotalScore)
-    {
-        return($"Your score is: {TotalScore}");
-    }
+    //public string DisplayPoints()
+    //{return($"Your score is: {TotalScore}");}
     
 }
