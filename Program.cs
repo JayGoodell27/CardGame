@@ -41,19 +41,21 @@ class GameSystem
     String display = score.DisplayPoints();
     Console.WriteLine($"{display}");
     
-    //Console.Write("Your score is: {}");
+    
     Console.Write($"Play again? [y/n] ");
     string? again = Console.ReadLine();
+    
+
 
     }
     public bool Compare(int Card1, int Card2, string guess)
     {
     bool result = true;
-        if (Card2 >= Card1 || guess == "h")
+        if (Card2 >= Card1 && guess == "h")
             {
             result = true;
             }
-        else if (Card1 > Card2 || guess == "l")
+        else if (Card1 > Card2 && guess == "l")
             {
             result = true;
             }
