@@ -16,14 +16,28 @@ run.Main();
 
 
 class GameSystem
-
 {
     public void Main()
+    {   
+        int TotalScore = 300;
+        bool turnout = GameRun(TotalScore);
+        while (turnout == true)
+        {
+        GameRun(TotalScore);
+        }
+
+
+        
+    }
+
+
+    public bool GameRun(int TotalScore)
     {
     Cards newCard = new Cards();
     Numbers score = new Numbers();
     int RandomCard1 = newCard.NewNum();
     int RandomCard2 = newCard.NewNum();
+    Console.WriteLine($"Your current amount of points is {TotalScore}");
     Console.WriteLine($"The card is :{RandomCard1}");
     
     
@@ -33,39 +47,54 @@ class GameSystem
     
     Console.WriteLine($" Next card was: {RandomCard2}");
     bool outcome = Compare(RandomCard1, RandomCard2, guess);
-    PointChange(outcome);
+    // TotalScore = PointChange(outcome, TotalScore);
     
     // String display = score.DisplayPoints();
     // Console.Write($"{display}");
 
+
     //String display = score.DisplayPoints();
     //Console.WriteLine($"{display}");
+
+    
     
     
     Console.Write($"Play again? [y/n] ");
     string? again = Console.ReadLine();
+    if (again == "y")
+    {
+        return true;
+    }
+    else if (again =="n")
+    {
+        return false;
+    }
+    else 
+    {
+        return true;
+    }
     
 
 
     }
     public bool Compare(int Card1, int Card2, string guess)
     {
-    bool result = true;
+    // bool result = true;
         if (Card2 >= Card1 && guess == "h")
             {
-            result = true;
+            return true;
             }
         else if (Card1 > Card2 && guess == "l")
             {
-            result = true;
+            return true;
             }
         else
             {
-            result = false;
+            return false;
             }
-    return result;
+
     }
-    public void PointChange(bool outcome)
+    public void PointChange(bool outcome, int TotalScore)
     {
     Numbers score = new Numbers();
     if (outcome == true)
@@ -73,14 +102,24 @@ class GameSystem
         int newscore = score.AddPoints();
         Console.WriteLine($"Your score is: {newscore}");
         }
-    else
+   else
         {
         int newscore = score.LosePoints();
         Console.WriteLine($"Your score is: {newscore}");
+//=======
+  //      TotalScore = score.AddPoints(TotalScore);
+  //      return TotalScore;
+  //      }
+  //  else
+  //      {
+  //      TotalScore = score.LosePoints(TotalScore);
+  //      return TotalScore;
+//>>>>>>> f261e6921db1c59a2513f620afa0ff2f89022fac
         }
     
     }
 }
+
 
 // class newGame
 // {
