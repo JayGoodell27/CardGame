@@ -38,8 +38,8 @@ class GameSystem
     // String display = score.DisplayPoints();
     // Console.Write($"{display}");
 
-    String display = score.DisplayPoints();
-    Console.WriteLine($"{display}");
+    //String display = score.DisplayPoints();
+    //Console.WriteLine($"{display}");
     
     
     Console.Write($"Play again? [y/n] ");
@@ -70,11 +70,13 @@ class GameSystem
     Numbers score = new Numbers();
     if (outcome == true)
         {
-        score.AddPoints();
+        int newscore = score.AddPoints();
+        Console.WriteLine($"Your score is: {newscore}");
         }
     else
         {
-        score.LosePoints();
+        int newscore = score.LosePoints();
+        Console.WriteLine($"Your score is: {newscore}");
         }
     
     }
