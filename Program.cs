@@ -1,16 +1,4 @@
-﻿
-
-//Console.Write($"The card is: {NewNum}");
-//Console.
-//vavarNumbers test = Numbersnew NumbersNn();:
-//Numbers test = new Numbers();
-//String Display = test.DisplayPoints();
-//Cards randomtest = new Cards();
-//int randomnumber = randomtest.NewNum();
-//Console.WriteLine(randomnumber);
-//Console.WriteLine(Display);
-
-GameSystem run = new GameSystem();
+﻿GameSystem run = new GameSystem();
 run.Main();
 
 
@@ -19,20 +7,29 @@ class GameSystem
 {
     public void Main()
     {   
+        bool ReRun = true;
         int TotalScore = 300;
-        bool turnout = GameRun(TotalScore);
-        while (turnout == true)
-        {
-        GameRun(TotalScore);
-        }
-
-
-        
+        while (ReRun == true)
+            {
+            Tuple<bool, int> turnout = (GameRun(TotalScore));
+            bool IsTrue = turnout.Item1;
+            int Point = turnout.Item2;
+            ReRun = IsTrue;
+            TotalScore = Point;
+            if (TotalScore <= 0)
+                {
+                    Console.WriteLine("You Lost!");
+                    ReRun = false;
+                }
+                
+            }   
     }
 
 
-    public bool GameRun(int TotalScore)
+    public static Tuple<bool, int> GameRun(int TotalScore)
     {
+    bool ReturnAgain;
+    int CurrentScore = TotalScore;
     Cards newCard = new Cards();
     Numbers score = new Numbers();
     int RandomCard1 = newCard.NewNum();
@@ -47,39 +44,31 @@ class GameSystem
     
     Console.WriteLine($" Next card was: {RandomCard2}");
     bool outcome = Compare(RandomCard1, RandomCard2, guess);
-     TotalScore = PointChange(outcome, TotalScore);
-    
-    // String display = score.DisplayPoints();
-    // Console.Write($"{display}");
-
-
-    //String display = score.DisplayPoints();
-    //Console.WriteLine($"{display}");
-
-    
-    
-    
+    TotalScore = PointChange(outcome, TotalScore);
+    String display = score.DisplayPoints(TotalScore);
+    Console.Write($"{display}");
     Console.Write($"Play again? [y/n] ");
     string? again = Console.ReadLine();
     if (again == "y")
-    {
-        return true;
-    }
+        {
+            ReturnAgain = true;
+        }
     else if (again =="n")
-    {
-        return false;
-    }
+        {
+            ReturnAgain = false;
+        }
     else 
-    {
-        return true;
-    }
+        {
+            ReturnAgain = true;
+        }
+    return Tuple.Create(ReturnAgain, TotalScore);
+    
     
 
 
     }
-    public bool Compare(int Card1, int Card2, string guess)
+    public static bool Compare(int Card1, int Card2, string guess)
     {
-    // bool result = true;
         if (Card2 >= Card1 && guess == "h")
             {
             return true;
@@ -94,70 +83,19 @@ class GameSystem
             }
 
     }
-    public int PointChange(bool outcome, int TotalScore)
+    public static int PointChange(bool outcome, int TotalScore)
     {
     Numbers score = new Numbers();
     if (outcome == true)
         {
-//        int TotalScore = score.AddPoints();
-//        Console.WriteLine($"Your score is: {TotalScore}");
-//        }
-//   else
-//        {
-//        int TotalScore = score.LosePoints();
-//        Console.WriteLine($"Your score is: {TotalScore}");
-//=======
-       TotalScore = score.AddPoints();
-       return TotalScore;
-       }
+        TotalScore = score.AddPoints(TotalScore);
+        return TotalScore;
+        }
    else
-       {
-       TotalScore = score.LosePoints();
-       return TotalScore;
-//>>>>>>> f261e6921db1c59a2513f620afa0ff2f89022fac
+        {
+        TotalScore = score.LosePoints(TotalScore);
+        return TotalScore;
         }
     
     }
 }
-
-
-// class newGame
-// {
-//     public string 
-// }
-
-
-
-
-
-// class GameSystem
-
-
-
-// {
-//     public void Main()
-//     {
-//     Cards newCard = new Cards();
-//     Numbers score = new Numbers();
-//     Console.WriteLine($"The card is :{newCard}");
-    
-    
-//     Console.Write("Higher or lower? [h/l] ");
-
-//     string? guess = Console.ReadLine();
-    
-//     Console.Write($"Next card was: {newCard}");
-    
-    
-//     String display = score.DisplayPoints();
-//     Console.Write($"{display}");
-    
-//     //Console.Write("Your score is: {}");
-//     Console.Write($"Play again? [y/n] ");
-//     string? again = Console.ReadLine();
-
-//     }
-// }
-
-// GameSystem run = new GameSystem();
-// run.Main();

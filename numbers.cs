@@ -1,10 +1,11 @@
 
+//Class that handles the number generation and some of the points process
 class Numbers
 {
-    int TotalScore = 300;
+    // int TotalScore = 300;
     
     
-    public int AddPoints()
+    public int AddPoints(int TotalScore)
     {
        int score = TotalScore + 100;
        TotalScore = score;
@@ -12,7 +13,7 @@ class Numbers
 
     }
 
-    public int LosePoints()
+    public int LosePoints(int TotalScore)
     {
         
         int score = TotalScore - 75;
@@ -20,7 +21,7 @@ class Numbers
         return score;
     }
 
-    public bool GameOverCheck()
+    public bool GameOverCheck(int TotalScore)
     {
         if (TotalScore <= 0)
         {
@@ -31,7 +32,7 @@ class Numbers
             return true;
         }
     }
-    //public string DisplayPoints()
-    //{return($"Your score is: {TotalScore}");}
+    public string DisplayPoints(int TotalScore)
+    {return($"Your score is: {TotalScore}");}
     
 }
